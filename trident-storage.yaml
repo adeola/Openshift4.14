@@ -1,0 +1,14 @@
+#Use the following yaml file to create trident storage class configuration for using ontap san storage
+#Trident storage class for iSCSI
+
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: ontap-san
+provisioner: csi.trident.netapp.io
+parameters:
+  backendType: "ontap-san"
+  media: "ssd"
+  provisioningType: "thin"
+  snapshots: "true"
+allowVolumeExpansion: true

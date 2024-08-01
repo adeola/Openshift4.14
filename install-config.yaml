@@ -1,0 +1,50 @@
+apiVersion: v1
+baseDomain: ocp4isw.interswitch.com 
+proxy:
+   httpsProxy: <http-proxy> 
+   httpProxy: <https-proxy> 
+   noProxy: <no-proxy>
+compute: 
+- hyperthreading: Enabled 
+  name: worker
+  replicas: 2 
+controlPlane: 
+  hyperthreading: Enabled 
+  name: master
+  replicas: 3 
+metadata:
+  name: OCP 
+networking:
+  machineNetwork:
+   - cidr: 192.168.1.0/24
+  clusterNetwork:
+  - cidr: 172.31.32.0/23 
+    hostPrefix: 23 
+  networkType:         #OVNKubernetes OR CiscoACI
+  serviceNetwork: 
+  - 172.30.0.0/16
+platform:vsphere
+  baremetal:
+     apiVIPs:
+     - 192.168.1.30
+     ingressVIPs:
+     - 192.168.1.29
+  #OR
+  #none: {} 
+fips: false 
+pullSecret: '{"auths":{"<local_registry>": {"auth": "<credentials>","email": "you@example.com"}}}' 
+sshKey: 'ssh-ed25519 AAAA...' 
+additionalTrustBundle: | 
+  -----BEGIN CERTIFICATE-----
+  ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ
+  -----END CERTIFICATE-----
+imageContentSources: 
+- mirrors:
+  - <local_registry>/<local_repository_name>/release
+  source: quay.io/openshift-release-dev/ocp-release
+- mirrors:
+  - <local_registry>/<local_repository_name>/release
+  source: quay.io/openshift-release-dev/ocp-v4.0-art-dev
+
+
+ 

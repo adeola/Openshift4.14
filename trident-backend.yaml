@@ -1,0 +1,25 @@
+#Use the following yaml file to create trident backend configuration for using ontap san storage
+#Trident backend for iSCSI
+
+
+apiVersion: v1
+kind: Secret
+metadata:
+  name: backend-tbc-ontap-san-secret
+type: Opaque
+stringData:
+  username: <username>
+  password: <password>
+---
+apiVersion: trident.netapp.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: ontap-san
+spec:
+  version: 1
+  storageDriverName: ontap-san
+  managementLIF: <management LIF>
+  backendName: ontap-san
+  svm: <SVM name>
+  credentials:
+    name: backend-tbc-ontap-san-secret
