@@ -1,0 +1,38 @@
+# Configuration for ACI Fabric
+aci_config: 
+  system_id: openupi                        # Every opflex cluster on the same fabric must have a distinct ID
+  apic_hosts:
+  - <APIC-IP>                               # List of APIC hosts to connect to for APIC API access
+  apic_login:
+    username: <username> 
+    password: <password>
+        
+  vmm_domain:                               # Kubernetes VMM domain configuration
+    encap_type: vxlan                       # Encap mode: vxlan or vlan
+    mcast_range:                            # Every vxlan VMM on the same fabric must use a distinct range
+      start: 225.115.1.1 
+      end: 225.115.255.255
+                                            # The following resources must already exist on the APIC,
+                                            # this is a reference to use them
+  aep: <AAEP_NAME>                          # The attachment profile for ports/VPCs connected to this cluster
+  vrf:                                      # VRF used to create all subnets used by this Kubernetes cluster
+    name: <VRF_NAME>                        # This should exist, the provisioning tool does not create it
+    tenant: <TENANT>                        # This can be tenant for this cluster (system-id) or common
+  l3out:                                    # L3out to use for this kubernetes cluster (in the VRF above)
+    name:<L3OUT_NAME> 
+    external_networks:                      # This is used to provision external service IPs/LB
+    - <EXTERNAL_EPG_NAME>
+    
+agent_based_installer:                      # This is to enable agent_based configuration
+  enable: true
+  
+                                # Networks used by Kubernetes
+net_config:                                 # This should also exist, the provisioning tool does not create it
+  node_subnet: 192.168.1.1/24                      # Subnet to use for nodes
+  pod_subnet: 10.2.0.1/16                          # Subnet to use for Kubernetes Pods
+  extern_dynamic: 10.3.0.1/16                      # Subnet to use for dynamically allocated external services
+  extern_static: 10.4.0.1/16                       # Subnet to use for statically allocated external services
+  node_svc_subnet: 10.5.0.1/16                     # Subnet to use for service graph
+  kubeapi_vlan: 11                                 # The VLAN used by the internal physdom for nodes
+  service_vlan: 21 infra_vlan: 3301                # The VLAN used for external LoadBalancer services
+
