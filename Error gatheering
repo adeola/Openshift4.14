@@ -1,0 +1,5 @@
+error from acc-provision 
+
+
+ERR:  Error in provisioning /api/mo/uni/tn-ISW-PROD/out-DEV-L30-FEFW-1/instP-EXT-DEV-L30-EPG.json: APIC REST Error: {'attributes': {'code': '102', 'text': 'configured object ((Dn0)) not found Dn0=uni/tn-ISW-PROD/out-DEV-L30-FEFW-1/instP-EXT-DEV-L30-EPG/rsprov-openupi-l3out-allow-all, '}}
+[root@ocpmgmt openupi]#
