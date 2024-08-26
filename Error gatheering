@@ -2,7 +2,9 @@ error from acc-provision
 ERR:  Error in provisioning /api/mo/uni/tn-ISW-PROD/out-DEV-L30-FEFW-1/instP-EXT-DEV-L30-EPG.json: APIC REST Error: {'attributes': {'code': '102', 'text': 'configured object ((Dn0)) not found Dn0=uni/tn-ISW-PROD/out-DEV-L30-FEFW-1/instP-EXT-DEV-L30-EPG/rsprov-openupi-l3out-allow-all, '}}
 [root@ocpmgmt openupi]#
 
-
+-----
+https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/auth?client_id=cloud-services&redirect_uri=https%3A%2F%2Fconsole.redhat.com%2Fopenshift%2Fcreate%2Fdatacenter&response_type=code&scope=openid+rhfull&nonce=211bacab-fc58-461e-8e2b-a5794d0bdf17&state=7dd1fd77e5144efd9ba18f37389c2c03&response_mode=fragment
+-------
 error on agent.x86 image build
 
 [root@ocpmgmt upi]# openshift-install agent create image --dir /home/compadmin/openupi/upi --log-level debug
