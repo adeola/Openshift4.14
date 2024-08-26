@@ -35,4 +35,12 @@ INFO Configuration has 3 master replicas and 2 worker replicas
 ERROR failed to write asset (Agent Installer ISO) to disk: cannot generate ISO image due to configuration errors
 FATAL failed to fetch Agent Installer ISO: failed to load asset "Install Config": invalid install-config configuration: [fips: Forbidden: target cluster is in FIPS mode, use the FIPS-capable installer binary for RHEL 9 on a host with FIPS enabled.
 FATAL To obtain a suitable binary, download the openshift-install-rhel9 archive from the client mirror, or extract the openshift-install-fips command from the release payload., networking.clusterNetwork[0].cidr: Invalid value: "172.31.32.0/23": cluster network must not overlap with any of the machine networks, networking.serviceNetwork: Invalid value: "172.30.0.0/16, 172.25.15.0/24": only one service network can be specified, proxy.httpProxy: Invalid value: "172.23.25.117:80": parse "172.23.25.117:80": invalid URI for request]
+-----------------------
+Fix for FIPS error
+-----------------------
+1)  oc adm release extract --tools quay.io/openshift-release-dev/ocp-release:4.14.0-x86_64 --command=openshift-install-fips --to=/usr/local/bin
+2) chmod +x /usr/local/bin/openshift-install-fips   #Set Executable Permissions
+3) /usr/local/bin/openshift-install-fips version    #to verify
+
+
 
