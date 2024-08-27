@@ -108,4 +108,388 @@ DEBUG           Loading Agent Config...
 ERROR failed to write asset (Agent Installer ISO) to disk: cannot generate ISO image due to configuration errors
 FATAL failed to fetch Agent Installer ISO: failed to load asset "Agent Config": failed to unmarshal agent-config.yaml: error converting YAML to JSON: yaml: line 44: could not find expected ':'
 [root@ocpmgmt ~]#
+------
+[root@ocpmgmt offline]# openshift-install-fips agent create image --dir /home/compadmin/openupi/upi --log-level debug
+DEBUG OpenShift Installer 4.16.7
+DEBUG Built from commit 4f78aec1c86c5f51f560f56193f7be1843ab2cd2
+DEBUG Fetching Agent Installer ISO...
+DEBUG Loading Agent Installer ISO...
+DEBUG   Loading Agent Workflow...
+DEBUG   Loading Agent Installer ClusterInfo...
+DEBUG     Loading Agent Workflow...
+DEBUG     Loading AddNodes Config...
+DEBUG   Loading Agent Installer Artifacts...
+DEBUG     Loading Agent Installer Ignition...
+DEBUG       Loading Agent Workflow...
+DEBUG       Loading Agent Installer ClusterInfo...
+DEBUG       Loading AddNodes Config...
+DEBUG       Loading Agent Manifests...
+DEBUG         Loading Agent PullSecret...
+DEBUG           Loading Agent Workflow...
+DEBUG           Loading Agent Installer ClusterInfo...
+DEBUG           Loading Install Config...
+DEBUG Using internal constant for release image quay.io/openshift-release-dev/ocp-release@sha256:0d365611e78c5306975753975419851183536354273a6340021f9b1cdd2a34c3
+DEBUG Release Image arch is: amd64
+DEBUG Supported architecture amd64 found for the release image: quay.io/openshift-release-dev/ocp-release@sha256:0d365611e78c5306975753975419851183536354273a6340021f9b1cdd2a34c3
+INFO Configuration has 3 master replicas and 2 worker replicas
+DEBUG           Using Install Config loaded from target directory
+DEBUG         Loading InfraEnv Config...
+DEBUG           Loading Agent Workflow...
+DEBUG           Loading Agent Installer ClusterInfo...
+DEBUG           Loading Install Config...
+DEBUG           Loading Agent Config...
+DEBUG           Using Agent Config loaded from target directory
+DEBUG         Loading NMState Config...
+DEBUG           Loading Agent Workflow...
+DEBUG           Loading Agent Installer ClusterInfo...
+DEBUG           Loading Agent Hosts...
+DEBUG             Loading Agent Workflow...
+DEBUG             Loading AddNodes Config...
+DEBUG             Loading Install Config...
+DEBUG             Loading Agent Config...
+DEBUG           Loading Install Config...
+DEBUG         Loading AgentClusterInstall Config...
+DEBUG           Loading Agent Workflow...
+DEBUG           Loading Install Config...
+DEBUG           Loading Agent Hosts...
+DEBUG         Loading ClusterDeployment Config...
+DEBUG           Loading Agent Workflow...
+DEBUG           Loading Install Config...
+DEBUG         Loading ClusterImageSet Config...
+DEBUG           Loading Agent Workflow...
+DEBUG           Loading Agent Installer ClusterInfo...
+DEBUG           Loading Release Image Pull Spec...
+DEBUG           Loading Install Config...
+DEBUG       Loading Extra Manifests...
+DEBUG       Using Extra Manifests loaded from target directory
+DEBUG       Loading Certificate (kube-apiserver-lb-signer)...
+DEBUG       Loading Certificate (kube-apiserver-localhost-signer)...
+DEBUG       Loading Certificate (kube-apiserver-service-network-signer)...
+DEBUG       Loading Certificate (admin-kubeconfig-signer)...
+DEBUG       Loading Kubeadmin Password...
+DEBUG       Loading Agent Config...
+DEBUG       Loading Agent Hosts...
+DEBUG       Loading Mirror Registries Config...
+DEBUG         Loading Agent Workflow...
+DEBUG         Loading Agent Installer ClusterInfo...
+DEBUG         Loading Install Config...
+DEBUG         Loading Release Image Pull Spec...
+DEBUG Using internal constant for release image quay.io/openshift-release-dev/ocp-release@sha256:0d365611e78c5306975753975419851183536354273a6340021f9b1cdd2a34c3
+DEBUG       Loading Mirror Registries Certificate File...
+DEBUG         Loading Agent Workflow...
+DEBUG         Loading Agent Installer ClusterInfo...
+DEBUG         Loading Install Config...
+DEBUG       Loading Agent Installer API Auth Config...
+DEBUG         Loading Agent Installer InfraEnv ID...
+DEBUG       Loading Agent Installer InfraEnv ID...
+DEBUG     Loading Agent ISO/PXE files Kernel Arguments...
+DEBUG       Loading Agent Workflow...
+DEBUG       Loading AgentClusterInstall Config...
+DEBUG     Loading BaseIso Image...
+DEBUG       Loading Agent Workflow...
+DEBUG       Loading Agent Installer ClusterInfo...
+DEBUG       Loading Agent Manifests...
+DEBUG       Loading Install Config...
+DEBUG       Loading Mirror Registries Config...
+DEBUG     Loading Agent Manifests...
+DEBUG     Loading AgentClusterInstall Config...
+DEBUG     Loading Mirror Registries Config...
+DEBUG     Loading Agent Config...
+DEBUG   Loading Agent Manifests...
+DEBUG   Loading BaseIso Image...
+DEBUG   Fetching Agent Workflow...
+DEBUG   Generating Agent Workflow...
+DEBUG   Fetching Agent Installer ClusterInfo...
+DEBUG     Fetching Agent Workflow...
+DEBUG     Reusing previously-fetched Agent Workflow
+DEBUG     Fetching AddNodes Config...
+DEBUG     Generating AddNodes Config...
+DEBUG   Generating Agent Installer ClusterInfo...
+DEBUG   Fetching Agent Installer Artifacts...
+DEBUG     Fetching Agent Installer Ignition...
+DEBUG       Fetching Agent Workflow...
+DEBUG       Reusing previously-fetched Agent Workflow
+DEBUG       Fetching Agent Installer ClusterInfo...
+DEBUG       Reusing previously-fetched Agent Installer ClusterInfo
+DEBUG       Fetching AddNodes Config...
+DEBUG       Reusing previously-fetched AddNodes Config
+DEBUG       Fetching Agent Manifests...
+DEBUG         Fetching Agent PullSecret...
+DEBUG           Fetching Agent Workflow...
+DEBUG           Reusing previously-fetched Agent Workflow
+DEBUG           Fetching Agent Installer ClusterInfo...
+DEBUG           Reusing previously-fetched Agent Installer ClusterInfo
+DEBUG           Fetching Install Config...
+DEBUG           Reusing previously-fetched Install Config
+DEBUG         Generating Agent PullSecret...
+DEBUG         Fetching InfraEnv Config...
+DEBUG           Fetching Agent Workflow...
+DEBUG           Reusing previously-fetched Agent Workflow
+DEBUG           Fetching Agent Installer ClusterInfo...
+DEBUG           Reusing previously-fetched Agent Installer ClusterInfo
+DEBUG           Fetching Install Config...
+DEBUG           Reusing previously-fetched Install Config
+DEBUG           Fetching Agent Config...
+DEBUG           Reusing previously-fetched Agent Config
+DEBUG         Generating InfraEnv Config...
+DEBUG         Fetching NMState Config...
+DEBUG           Fetching Agent Workflow...
+DEBUG           Reusing previously-fetched Agent Workflow
+DEBUG           Fetching Agent Installer ClusterInfo...
+DEBUG           Reusing previously-fetched Agent Installer ClusterInfo
+DEBUG           Fetching Agent Hosts...
+DEBUG             Fetching Agent Workflow...
+DEBUG             Reusing previously-fetched Agent Workflow
+DEBUG             Fetching AddNodes Config...
+DEBUG             Reusing previously-fetched AddNodes Config
+DEBUG             Fetching Install Config...
+DEBUG             Reusing previously-fetched Install Config
+DEBUG             Fetching Agent Config...
+DEBUG             Reusing previously-fetched Agent Config
+DEBUG           Generating Agent Hosts...
+DEBUG Using hosts from agent-config.yaml
+DEBUG           Fetching Install Config...
+DEBUG           Reusing previously-fetched Install Config
+DEBUG         Generating NMState Config...
+DEBUG adding MAC interface map to host static network config - Name: ens160 MacAddress:00:50:56:a7:f4:15
+DEBUG adding MAC interface map to host static network config - Name: ens160 MacAddress:00:50:56:a7:aa:3e
+DEBUG adding MAC interface map to host static network config - Name: ens160 MacAddress:00:50:56:a7:06:00
+DEBUG adding MAC interface map to host static network config - Name: ens160 MacAddress:ec:b1:d7:b1:e4:f0
+DEBUG adding MAC interface map to host static network config - Name: ens161 MacAddress:ec:b1:d7:b1:e4:f4
+DEBUG adding MAC interface map to host static network config - Name: ens160 MacAddress:58:20:b1:e1:12:78
+DEBUG adding MAC interface map to host static network config - Name: ens161 MacAddress:58:20:b1:e1:12:76
+ERROR <nmstatectl gc> failed, errorCode 1, stderr [2024-08-27T09:49:47Z INFO  nmstatectl] Nmstate version: 2.2.33  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::iface] Unsupported interface type physical  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::ifaces::inter_ifaces] Setting unknown type interface ens160 to ethernet  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::ifaces::inter_ifaces] Setting unknown type interface node to ethernet  pkg=manifests
+ERROR NmstateError: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`  pkg=manifests
+ERROR , input yaml <dns-resolver:                   pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR     server:                                   pkg=manifests
+ERROR     - 172.25.15.7                             pkg=manifests
+ERROR     - 172.25.15.68                            pkg=manifests
+ERROR interfaces:                                   pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: ens160                                pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     address:                                  pkg=manifests
+ERROR     - ip: 172.31.32.105                       pkg=manifests
+ERROR       prefix-length: 23                       pkg=manifests
+ERROR     dhcp: false                               pkg=manifests
+ERROR     enabled: true                             pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: node                                  pkg=manifests
+ERROR   physical:                                   pkg=manifests
+ERROR     base-iface: ens160                        pkg=manifests
+ERROR   state: up                                   pkg=manifests
+ERROR   type: physical                              pkg=manifests
+ERROR routes:                                       pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR   - destination: 0.0.0.0/0                    pkg=manifests
+ERROR     next-hop-address: 172.31.32.1             pkg=manifests
+ERROR     next-hop-interface: ens160                pkg=manifests
+ERROR >                                             pkg=manifests
+ERROR <nmstatectl gc> failed, errorCode 1, stderr [2024-08-27T09:49:47Z INFO  nmstatectl] Nmstate version: 2.2.33  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::iface] Unsupported interface type physical  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::ifaces::inter_ifaces] Setting unknown type interface node to ethernet  pkg=manifests
+ERROR NmstateError: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`  pkg=manifests
+ERROR , input yaml <dns-resolver:                   pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR     server:                                   pkg=manifests
+ERROR     - 172.25.15.7                             pkg=manifests
+ERROR     - 172.25.15.68                            pkg=manifests
+ERROR interfaces:                                   pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: ens160                                pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     address:                                  pkg=manifests
+ERROR     - ip: 172.31.32.106                       pkg=manifests
+ERROR       prefix-length: 23                       pkg=manifests
+ERROR     dhcp: false                               pkg=manifests
+ERROR     enabled: true                             pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: node                                  pkg=manifests
+ERROR   physical:                                   pkg=manifests
+ERROR     base-iface: ens160                        pkg=manifests
+ERROR   state: up                                   pkg=manifests
+ERROR   type: physical                              pkg=manifests
+ERROR routes:                                       pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR   - destination: 0.0.0.0/0                    pkg=manifests
+ERROR     next-hop-address: 172.31.32.1             pkg=manifests
+ERROR     next-hop-interface: ens160                pkg=manifests
+ERROR >                                             pkg=manifests
+ERROR <nmstatectl gc> failed, errorCode 1, stderr [2024-08-27T09:49:47Z INFO  nmstatectl] Nmstate version: 2.2.33  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::iface] Unsupported interface type physical  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::ifaces::inter_ifaces] Setting unknown type interface ens160 to ethernet  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::ifaces::inter_ifaces] Setting unknown type interface node to ethernet  pkg=manifests
+ERROR NmstateError: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`  pkg=manifests
+ERROR , input yaml <dns-resolver:                   pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR     server:                                   pkg=manifests
+ERROR     - 172.25.15.7                             pkg=manifests
+ERROR     - 172.25.15.68                            pkg=manifests
+ERROR interfaces:                                   pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: ens160                                pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     address:                                  pkg=manifests
+ERROR     - ip: 172.31.32.107                       pkg=manifests
+ERROR       prefix-length: 23                       pkg=manifests
+ERROR     dhcp: false                               pkg=manifests
+ERROR     enabled: true                             pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: node                                  pkg=manifests
+ERROR   physical:                                   pkg=manifests
+ERROR     base-iface: ens160                        pkg=manifests
+ERROR   state: up                                   pkg=manifests
+ERROR   type: physical                              pkg=manifests
+ERROR routes:                                       pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR   - destination: 0.0.0.0/0                    pkg=manifests
+ERROR     next-hop-address: 172.31.32.1             pkg=manifests
+ERROR     next-hop-interface: ens160                pkg=manifests
+ERROR >                                             pkg=manifests
+ERROR <nmstatectl gc> failed, errorCode 1, stderr [2024-08-27T09:49:47Z INFO  nmstatectl] Nmstate version: 2.2.33  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::iface] Unsupported interface type physical  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::iface] Unsupported interface type physical  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::ifaces::inter_ifaces] Setting unknown type interface ens160 to ethernet  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::ifaces::inter_ifaces] Setting unknown type interface ens161 to ethernet  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::ifaces::inter_ifaces] Setting unknown type interface node to ethernet  pkg=manifests
+ERROR NmstateError: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`  pkg=manifests
+ERROR , input yaml <dns-resolver:                   pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR     server:                                   pkg=manifests
+ERROR     - 172.25.15.7                             pkg=manifests
+ERROR     - 172.25.15.68                            pkg=manifests
+ERROR interfaces:                                   pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: ens160                                pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: ens161                                pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     address:                                  pkg=manifests
+ERROR     - ip: 172.31.32.108                       pkg=manifests
+ERROR       prefix-length: 23                       pkg=manifests
+ERROR     dhcp: false                               pkg=manifests
+ERROR     enabled: true                             pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: node                                  pkg=manifests
+ERROR   physical:                                   pkg=manifests
+ERROR     base-iface: ens160                        pkg=manifests
+ERROR   state: up                                   pkg=manifests
+ERROR   type: physical                              pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     dhcp: true                                pkg=manifests
+ERROR     enabled: true                             pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: infra                                 pkg=manifests
+ERROR   physical:                                   pkg=manifests
+ERROR     base-iface: ens161                        pkg=manifests
+ERROR   state: up                                   pkg=manifests
+ERROR   type: physical                              pkg=manifests
+ERROR routes:                                       pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR   - destination: 0.0.0.0/0                    pkg=manifests
+ERROR     next-hop-address: 172.31.32.1             pkg=manifests
+ERROR     next-hop-interface: ens160                pkg=manifests
+ERROR   - destination: 172.0.0.0/8                  pkg=manifests
+ERROR     next-hop-interface: ens161                pkg=manifests
+ERROR >                                             pkg=manifests
+ERROR <nmstatectl gc> failed, errorCode 1, stderr [2024-08-27T09:49:47Z INFO  nmstatectl] Nmstate version: 2.2.33  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::iface] Unsupported interface type physical  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::iface] Unsupported interface type physical  pkg=manifests
+ERROR [2024-08-27T09:49:47Z WARN  nmstate::ifaces::inter_ifaces] Setting unknown type interface infra to ethernet  pkg=manifests
+ERROR NmstateError: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`  pkg=manifests
+ERROR , input yaml <dns-resolver:                   pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR     server:                                   pkg=manifests
+ERROR     - 172.25.15.7                             pkg=manifests
+ERROR     - 172.25.15.68                            pkg=manifests
+ERROR interfaces:                                   pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: ens160                                pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: ens161                                pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     address:                                  pkg=manifests
+ERROR     - ip: 172.31.32.109                       pkg=manifests
+ERROR       prefix-length: 23                       pkg=manifests
+ERROR     dhcp: false                               pkg=manifests
+ERROR     enabled: true                             pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: node                                  pkg=manifests
+ERROR   physical:                                   pkg=manifests
+ERROR     base-iface: ens160                        pkg=manifests
+ERROR   state: up                                   pkg=manifests
+ERROR   type: physical                              pkg=manifests
+ERROR - ipv4:                                       pkg=manifests
+ERROR     dhcp: true                                pkg=manifests
+ERROR     enabled: true                             pkg=manifests
+ERROR   ipv6:                                       pkg=manifests
+ERROR     enabled: false                            pkg=manifests
+ERROR   mtu: 9000                                   pkg=manifests
+ERROR   name: infra                                 pkg=manifests
+ERROR   physical:                                   pkg=manifests
+ERROR     base-iface: ens161                        pkg=manifests
+ERROR   state: up                                   pkg=manifests
+ERROR   type: physical                              pkg=manifests
+ERROR routes:                                       pkg=manifests
+ERROR   config:                                     pkg=manifests
+ERROR   - destination: 0.0.0.0/0                    pkg=manifests
+ERROR     next-hop-address: 172.168.1.1             pkg=manifests
+ERROR     next-hop-interface: ens160                pkg=manifests
+ERROR   - destination: 172.0.0.0/8                  pkg=manifests
+ERROR     next-hop-interface: ens161                pkg=manifests
+ERROR >                                             pkg=manifests
+ERROR failed to write asset (Agent Installer ISO) to disk: cannot generate ISO image due to configuration errors
+FATAL failed to fetch Agent Installer ISO: failed to fetch dependency of "Agent Installer ISO": failed to fetch dependency of "Agent Installer Artifacts": failed to fetch dependency of "Agent Installer Ignition": failed to fetch dependency of "Agent Manifests": failed to generate asset "NMState Config": staticNetwork configuration is not valid: 5 errors occurred:
+FATAL   * failed to validate network yaml for host 0, failed to execute 'nmstatectl gc', error: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`
+FATAL   * failed to validate network yaml for host 1, failed to execute 'nmstatectl gc', error: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`
+FATAL   * failed to validate network yaml for host 2, failed to execute 'nmstatectl gc', error: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`
+FATAL   * failed to validate network yaml for host 3, failed to execute 'nmstatectl gc', error: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`
+FATAL   * failed to validate network yaml for host 4, failed to execute 'nmstatectl gc', error: InvalidArgument: Invalid property for ethernet interface: unknown field `physical`
+FATAL
+FATAL
+[root@ocpmgmt offline]#
 
