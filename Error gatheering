@@ -5,6 +5,8 @@ ERR:  Error in provisioning /api/mo/uni/tn-ISW-PROD/out-DEV-L30-FEFW-1/instP-EXT
 -----
 https://sso.redhat.com/auth/realms/redhat-external/protocol/openid-connect/auth?client_id=cloud-services&redirect_uri=https%3A%2F%2Fconsole.redhat.com%2Fopenshift%2Fcreate%2Fdatacenter&response_type=code&scope=openid+rhfull&nonce=211bacab-fc58-461e-8e2b-a5794d0bdf17&state=7dd1fd77e5144efd9ba18f37389c2c03&response_mode=fragment
 https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.14.9/
+curl -O https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.14/openshift-install-linux-fips-4.14.9.tar.gz
+
 
 -------
 error on agent.x86 image build
