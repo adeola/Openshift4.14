@@ -532,4 +532,39 @@ level=info msg=Configuration has 3 master replicas and 2 worker replicas
 level=error msg=failed to write asset (Agent Installer ISO) to disk: cannot generate ISO image due to configuration errors
 level=fatal msg=failed to fetch Agent Installer ISO: failed to load asset "Install Config": invalid install-config configuration: [networking.serviceNetwork: Invalid value: "10.96.0.0/12, 172.30.0.0/16, 172.25.15.0/24": only one service network can be specified, platform.baremetal.apiVIPs: Invalid value: "172.31.32.114": IP expected to be in one of the machine networks: 172.31.28.0/22, platform.baremetal.ingressVIPs: Invalid value: "172.31.32.115": IP expected to be in one of the machine networks: 172.31.28.0/22]
 [root@OCPMGT-02 openupi]#
+-----------------------------
+apiVersion: v1
+baseDomain: ocp4isw.interswitch.com
+proxy:
+  httpsProxy: http://172.23.25.117:80
+  httpProxy: http://172.23.25.117:80
+#   noProxy: <no-proxy>
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 2
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: ocp4isw
+networking:
+  machineNetwork:
+   - cidr: 172.31.28.0/21
+  clusterNetwork:
+  - cidr: 10.200.0.0/16
+    hostPrefix: 23
+  networkType: CiscoACI         #OVNKubernetes OR CiscoACI
+  serviceNetwork:
+  - 10.96.0.0/12
+  - 172.30.0.0/16
+  - 172.25.15.0/24
+platform:
+  baremetal:
+     apiVIPs:
+     - 172.31.32.114
+     ingressVIPs:
+     - 172.31.32.115
+  #OR
 
