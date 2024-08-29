@@ -1,0 +1,43 @@
+apiVersion: v1alpha1
+kind: AgentConfig
+metadata:
+  name: ocp4isw
+rendezvousIP: 172.31.32.105
+AdditionalNTPSources:
+  - f5time.interswitch.com
+hosts:
+  - hostname: cp1
+    role: master
+    interfaces:
+    - name: ens160
+      macAddress: 00:50:56:a7:f4:15
+    networkConfig:
+      interfaces:
+        - name: ens160
+          mtu: 9000
+          ipv4:
+            enabled: false
+          ipv6:
+            enabled: false
+        - name: node
+          type: ethernet
+          mtu: 9000
+          state: up
+          ipv4:
+            enabled: true
+            address:
+              - ip: 172.31.32.105
+                prefix-length: 23
+            dhcp: false
+          ipv6:
+            enabled: false
+      dns-resolver:
+        config:
+          server:
+            - 172.25.15.7
+            - 172.25.15.68
+      routes:
+        config:
+          - destination: 0.0.0.0/0
+            next-hop-address: 172.31.32.1
+                                                                                                                                       
