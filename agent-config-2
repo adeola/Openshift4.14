@@ -1,0 +1,180 @@
+apiVersion: v1alpha1
+kind: AgentConfig
+metadata:
+  name: ocp4isw  # Name is indicative of an OpenShift Container Platform (OCP) cluster
+  namespace: openshift-agent-installer
+spec:
+  networking:
+    machineNetwork:
+    - cidr: 172.31.30.0/23
+    clusterNetwork:
+      - cidr: 10.200.0.0/16
+        hostPrefix: 23
+    serviceNetwork:
+      - 10.96.0.0/12
+  proxy:
+    httpProxy: http://172.29.15.117:80
+    httpsProxy: http://172.29.15.117:80
+  dns:
+    baseDomain: ocp4isw.insw.com
+    additionalResolvers:
+      - domain: insw.com
+        ipAddresses:
+          - 172.29.15.7
+          - 172.29.15.68
+  ntpServers:  # Adding NTP server configurations
+    - 172.35.29.2
+    - 172.35.29.3
+  rendezvousIP: 172.31.32.105  # First control plane host IP
+  hosts:
+    - hostname: cp1
+      role: master  # Role for control plane
+      networkConfig:
+        interfaces:
+          - name: ens160
+            type: ethernet
+            macAddress: 00:50:56:a7:f4:15
+            mtu: 9000
+            ipv4:
+              enabled: true
+              dhcp: false
+              addresses:
+                - 172.31.32.105/23
+              gateway: 172.31.31.1
+            ipv6:
+              enabled: false
+        dns-resolver:
+          config:
+            server:
+              - 172.29.15.7
+              - 172.29.15.68
+            search:
+              - insw.com
+              - ocp4isw.insw.com
+        routes:
+          - destination: 0.0.0.0/0
+            gateway: 172.31.31.1
+    - hostname: cp2
+      role: master  # Role for control plane
+      networkConfig:
+        interfaces:
+          - name: ens160
+            type: ethernet
+            macAddress: 00:50:56:a7:aa:3e
+            mtu: 9000
+            ipv4:
+              enabled: true
+              dhcp: false
+              addresses:
+                - 172.31.32.106/23
+              gateway: 172.31.31.1
+            ipv6:
+              enabled: false
+        dns-resolver:
+          config:
+            server:
+              - 172.29.15.7
+              - 172.29.15.68
+            search:
+              - insw.com
+              - ocp4isw.insw.com
+        routes:
+          - destination: 0.0.0.0/0
+            gateway: 172.31.31.1
+    - hostname: cp3
+      role: master  # Role for control plane
+      networkConfig:
+        interfaces:
+          - name: ens160
+            type: ethernet
+            macAddress: 00:50:56:a7:06:00
+            mtu: 9000
+            ipv4:
+              enabled: true
+              dhcp: false
+              addresses:
+                - 172.31.32.107/23
+              gateway: 172.31.31.1
+            ipv6:
+              enabled: false
+        dns-resolver:
+          config:
+            server:
+              - 172.29.15.7
+              - 172.29.15.68
+            search:
+              - insw.com
+              - ocp4isw.insw.com
+        routes:
+          - destination: 0.0.0.0/0
+            gateway: 172.31.31.1
+    - hostname: wkn1
+      role: worker  # Role for worker node
+      networkConfig:
+        interfaces:
+          - name: ens161
+            type: ethernet
+            macAddress: 80:30:e0:1d:1f:98
+            mtu: 9000
+            ipv4:
+              enabled: true
+              dhcp: false
+              addresses:
+                - 172.31.32.186/23
+              gateway: 172.31.31.1
+            ipv6:
+              enabled: false
+          - name: ens162
+            type: ethernet
+            macAddress: 80:30:e0:1d:1f:9c
+            mtu: 9000
+            ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+        dns-resolver:
+          config:
+            server:
+              - 172.29.15.7
+              - 172.29.15.68
+            search:
+              - insw.com
+              - ocp4isw.insw.com
+        routes:
+          - destination: 0.0.0.0/0
+            gateway: 172.31.31.1
+    - hostname: wkn2
+      role: worker  # Role for worker node
+      networkConfig:
+        interfaces:
+          - name: ens161
+            type: ethernet
+            macAddress: 58:20:b1:e1:12:78
+            mtu: 9000
+            ipv4:
+              enabled: true
+              dhcp: false
+              addresses:
+                - 172.31.32.187/23
+              gateway: 172.31.31.1
+            ipv6:
+              enabled: false
+          - name: ens162
+            type: ethernet
+            macAddress: 58:20:b1:e1:12:7c
+            mtu: 9000
+            ipv4:
+              enabled: false
+            ipv6:
+              enabled: false
+        dns-resolver:
+          config:
+            server:
+              - 172.29.15.7
+              - 172.29.15.68
+            search:
+              - insw.com
+              - ocp4isw.insw.com
+        routes:
+          - destination: 0.0.0.0/0
+            gateway: 172.31.31.1
