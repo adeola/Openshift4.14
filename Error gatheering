@@ -596,4 +596,44 @@ Connection closed by foreign host.
 [root@OCPMGT-02 ~]# curl -k https://api.ocp4isw.interswitch.com:6443
 curl: (35) error:0A000126:SSL routines::unexpected eof while reading
 [root@OCPMGT-02 ~]#
+----
+
+[root@lb ~]# systemctl status haproxy.service
+● haproxy.service - HAProxy Load Balancer
+     Loaded: loaded (/usr/lib/systemd/system/haproxy.service; enabled; preset: disabled)
+     Active: active (running) since Tue 2024-09-03 07:52:54 WAT; 12s ago
+    Process: 203390 ExecStartPre=/usr/sbin/haproxy -f $CONFIG -f $CFGDIR -c -q $OPTIONS (code=exited, status=0/SUCCESS)
+   Main PID: 203392 (haproxy)
+      Tasks: 5 (limit: 203365)
+     Memory: 10.0M
+        CPU: 33ms
+     CGroup: /system.slice/haproxy.service
+             ├─203392 /usr/sbin/haproxy -Ws -f /etc/haproxy/haproxy.cfg -f /etc/haproxy/conf.d -p /run/haproxy.pid
+             └─203394 /usr/sbin/haproxy -Ws -f /etc/haproxy/haproxy.cfg -f /etc/haproxy/conf.d -p /run/haproxy.pid
+
+Sep 03 07:52:54 lb haproxy[203394]: [WARNING]  (203394) : Server machine-config-server-22623/cp2 is DOWN, reason: Layer4 connection problem, info: "Connection refuse>
+Sep 03 07:52:54 lb haproxy[203394]: [WARNING]  (203394) : Server machine-config-server-22623/cp3 is DOWN, reason: Layer4 connection problem, info: "Connection refuse>
+Sep 03 07:52:54 lb haproxy[203394]: [NOTICE]   (203394) : haproxy version is 2.4.22-f8e3218
+Sep 03 07:52:54 lb haproxy[203394]: [NOTICE]   (203394) : path to executable is /usr/sbin/haproxy
+Sep 03 07:52:54 lb haproxy[203394]: [ALERT]    (203394) : proxy 'machine-config-server-22623' has no server available!
+Sep 03 07:52:55 lb haproxy[203394]: [WARNING]  (203394) : Health check for server api-server-6443/cp2 failed, reason: Layer4 connection problem, info: "Connection re>
+Sep 03 07:52:55 lb haproxy[203394]: [WARNING]  (203394) : Server api-server-6443/cp2 is DOWN. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 re>
+Sep 03 07:52:57 lb haproxy[203394]: [WARNING]  (203394) : Health check for server api-server-6443/cp3 failed, reason: Layer4 connection problem, info: "Connection re>
+Sep 03 07:52:57 lb haproxy[203394]: [WARNING]  (203394) : Server api-server-6443/cp3 is DOWN. 0 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 re>
+Sep 03 07:52:57 lb haproxy[203394]: [ALERT]    (203394) : proxy 'api-server-6443' has no server available!
+
+[root@lb ~]# ls  /etc/haproxy/
+certs  conf.d  haproxy.cfg  haproxy.cfg.bak  haproxy.cfg.old
+[root@lb ~]# curl -k https://api.ocp4isw.interswitch.com:6443
+curl: (52) Empty reply from server
+[root@lb ~]# telnet api.ocp4isw.interswitch.com 6443
+Trying 172.31.32.114...
+Connected to api.ocp4isw.interswitch.com.
+Escape character is '^]'.
+Connection closed by foreign host.
+[root@lb ~]#
+
+
+
+
 
