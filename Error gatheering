@@ -624,11 +624,11 @@ Sep 03 07:52:57 lb haproxy[203394]: [ALERT]    (203394) : proxy 'api-server-6443
 
 [root@lb ~]# ls  /etc/haproxy/
 certs  conf.d  haproxy.cfg  haproxy.cfg.bak  haproxy.cfg.old
-[root@lb ~]# curl -k https://api.ocp4isw.interswitch.com:6443
+[root@lb ~]# curl -k https://api.ocp4.int.com:6443
 curl: (52) Empty reply from server
-[root@lb ~]# telnet api.ocp4isw.interswitch.com 6443
+[root@lb ~]# telnet api.ocp4.int.com 6443
 Trying 172.31.32.114...
-Connected to api.ocp4isw.interswitch.com.
+Connected to api.ocp4.int.com.
 Escape character is '^]'.
 Connection closed by foreign host.
 [root@lb ~]#
