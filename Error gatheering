@@ -732,24 +732,24 @@ defaults
 
 
   listen api-server-6443
-    bind *:6443 ssl crt /etc/haproxy/ssl/api-ocp4isw-interswitch-com.pem
+    bind *:6443 ssl crt /etc/haproxy/ssl/api-ocp4-inter-com.pem
     mode tcp
     option httpchk GET /readyz Http/1.0
     option log-health-checks
     #balance roundrobin
-    #server bootstrap bootstrap.ocp4isw.interswitch.com:6443 verify none check check-ssl inter 10s fall 2 rise 3 backup
-    server cp1 cp1.ocp4isw.interswitch.com:6443 check inter 1s
-    server cp2 cp2.ocp4isw.interswitch.com:6433 check inter 1s
-    server cp3 cp3.ocp4isw.interswitch.com:6443 check inter 1s
+    #server bootstrap bootstrap.ocp4.int.com:6443 verify none check check-ssl inter 10s fall 2 rise 3 backup
+    server cp1 cp1.ocp4.inter.com:6443 check inter 1s
+    server cp2 cp2.ocp4.inter.com:6433 check inter 1s
+    server cp3 cp3.ocp4.inter.com:6443 check inter 1s
 
 
   listen machine-config-server-22623
     bind *:22623
     mode tcp
-   #server bootstrap bootstrap.ocp4isw.interswitch.com:22623 check inter 5s backup
-    server cp1 cp1.ocp4isw.interswitch.com:22623 check inter 1s
-    server cp2 cp2.ocp4isw.interswitch.com:22623 check inter 1s
-    server cp3 cp3.ocp4isw.interswitch.com:22623 check inter 1s
+   #server bootstrap bootstrap.ocp4.inter.com:22623 check inter 5s backup
+    server cp1 cp1.ocp4.inter.com:22623 check inter 1s
+    server cp2 cp2.ocp4.inter.com:22623 check inter 1s
+    server cp3 cp3.ocp4.intercom:22623 check inter 1s
 
 
 
