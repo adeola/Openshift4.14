@@ -1,0 +1,7 @@
+---
+---
+
+openssl req -newkey rsa:2048 -nodes -keyout api-lb.key -x509 -days 365 -out api-lb.crt -subj "/CN=api.example.com"
+openssl req -newkey rsa:2048 -nodes -keyout ingress-lb.key -x509 -days 365 -out ingress-lb.crt -subj "/CN=ingress.example.com"
+openssl req -newkey rsa:2048 -nodes -keyout control-plane1.key -x509 -days 365 -out control-plane1.crt -subj "/CN=control-plane1.example.com"
+openssl req -newkey rsa:2048 -nodes -keyout worker1.key -x509 -days 365 -out worker1.crt -subj "/CN=worker1.example.com"
