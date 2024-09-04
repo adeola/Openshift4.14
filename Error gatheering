@@ -643,7 +643,7 @@ Connection closed by foreign host.
 * Connected to 172.23.25.117 (172.23.25.117) port 80 (#0)
 * allocate connect buffer!
 * Establish HTTP proxy tunnel to api.ocp4.int.com:6443
-> CONNECT api.ocp4isw.interswitch.com:6443 HTTP/1.1
+> CONNECT api.ocp4.inter.com:6443 HTTP/1.1
 > Host: api.ocp4.inter.com:6443
 > User-Agent: curl/7.76.1
 > Proxy-Connection: Keep-Alive
