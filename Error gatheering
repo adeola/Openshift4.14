@@ -636,15 +636,15 @@ Connection closed by foreign host.
 -----------
 
 
-[root@OCPMGT-02 upi]# curl -v https://api.ocp4isw.interswitch.com:6443
+[root@OCPMGT-02 upi]# curl -v https://api.ocp4.int.com:6443
 * Uses proxy env variable no_proxy == 'localhost,127.0.0.1'
 * Uses proxy env variable https_proxy == 'http://172.23.25.117:80'
 *   Trying 172.23.25.117:80...
 * Connected to 172.23.25.117 (172.23.25.117) port 80 (#0)
 * allocate connect buffer!
-* Establish HTTP proxy tunnel to api.ocp4isw.interswitch.com:6443
+* Establish HTTP proxy tunnel to api.ocp4.int.com:6443
 > CONNECT api.ocp4isw.interswitch.com:6443 HTTP/1.1
-> Host: api.ocp4isw.interswitch.com:6443
+> Host: api.ocp4.inter.com:6443
 > User-Agent: curl/7.76.1
 > Proxy-Connection: Keep-Alive
 >
