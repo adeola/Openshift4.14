@@ -677,6 +677,81 @@ curl failed to verify the legitimacy of the server and therefore could not
 establish a secure connection to it. To learn more about this situation and
 how to fix it, please visit the web page mentioned above.
 [root@OCPMGT-02 upi]#
+---
+#---------------------------------------------------------------------
+global
+    # to have these messages end up in /var/log/haproxy.log you will
+    # need to:
+    #
+    # 1) configure syslog to accept network log events.  This is done
+    #    by adding the '-r' option to the SYSLOGD_OPTIONS in
+    #    /etc/sysconfig/syslog
+    #
+    # 2) configure local2 events to go to the /var/log/haproxy.log
+    #   file. A line like the following can be added to
+    #   /etc/sysconfig/syslog
+    #
+    #    local2.*                       /var/log/haproxy.log
+    #
+    log         127.0.0.1 local2
+    pidfile     /var/run/haproxy-api.pid
+    maxconn     4000
+    daemon
+#---------------------------------------------------------------------
+# common defaults that all the 'listen' and 'backend' sections will
+# use if not designated in their block
+#---------------------------------------------------------------------
+defaults
+    mode                    http
+    log                     global
+    log                     /dev/log local0
+    log                     /dev/log local1 notice
+    option                  dontlognull
+
+    option http-server-close
+    option                  redispatch
+    retries                 3
+    timeout http-request    10s
+    timeout queue           1m
+    timeout http-keep-alive 10s
+    timeout connect         10s
+    timeout client          1m
+    timeout server          1m
+    timeout check           10s
+    maxconn                 3000
+
+ listen stats
+    bind :9000
+    mode http
+    stats enable
+    stats uri /stats
+    stats refresh 10000ms
+    stats realm Haproxy\ Statistics
+    stats auth admin:Password@123
+    stats admin if TRUE
+
+
+  listen api-server-6443
+    bind *:6443 ssl crt /etc/haproxy/ssl/api-ocp4isw-interswitch-com.pem
+    mode tcp
+    option httpchk GET /readyz Http/1.0
+    option log-health-checks
+    #balance roundrobin
+    #server bootstrap bootstrap.ocp4isw.interswitch.com:6443 verify none check check-ssl inter 10s fall 2 rise 3 backup
+    server cp1 cp1.ocp4isw.interswitch.com:6443 check inter 1s
+    server cp2 cp2.ocp4isw.interswitch.com:6433 check inter 1s
+    server cp3 cp3.ocp4isw.interswitch.com:6443 check inter 1s
+
+
+  listen machine-config-server-22623
+    bind *:22623
+    mode tcp
+   #server bootstrap bootstrap.ocp4isw.interswitch.com:22623 check inter 5s backup
+    server cp1 cp1.ocp4isw.interswitch.com:22623 check inter 1s
+    server cp2 cp2.ocp4isw.interswitch.com:22623 check inter 1s
+    server cp3 cp3.ocp4isw.interswitch.com:22623 check inter 1s
+
+
 
 
 
